@@ -1,4 +1,4 @@
-﻿namespace AddonTemplate.Modes
+﻿namespace CancerDarius.Modes
 {
     public sealed class PermaActive : ModeBase
     {

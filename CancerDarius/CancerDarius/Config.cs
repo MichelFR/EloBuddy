@@ -3,7 +3,7 @@ using EloBuddy.SDK.Menu.Values;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable MemberHidesStaticFromOuterClass
-namespace AddonTemplate
+namespace CancerDarius
 {
     // I can't really help you with my layout of a good config class
     // since everyone does it the way they like it most, go checkout my
@@ -20,8 +20,8 @@ namespace AddonTemplate
             // Initialize the menu
             Menu = MainMenu.AddMenu(MenuName, MenuName.ToLower());
             Menu.AddGroupLabel("Welcome to CancerDarius Addon!");
-            Menu.AddLabel("To change the menu, please have a look at the");
-            Menu.AddLabel("Config.cs class inside the project, now have fun!");
+            Menu.AddLabel("Im Cancerous and i dont got Cancer!");
+            Menu.AddLabel("I Dont want to make fun of people who got Cancer, i just wanted to say that this addon is badass just like the disease!");
 
             // Initialize the modes
             Modes.Initialize();
@@ -84,7 +84,7 @@ namespace AddonTemplate
                     _useQ = Menu.Add("comboUseQ", new CheckBox("Use Q"));
                     _useW = Menu.Add("comboUseW", new CheckBox("Use W"));
                     _useE = Menu.Add("comboUseE", new CheckBox("Use E"));
-                    _useR = Menu.Add("comboUseR", new CheckBox("Use R", false)); // Default false
+                    _useR = Menu.Add("comboUseR", new CheckBox("Use R (When Killable)", true)); // Default false
                 }
 
                 public static void Initialize()
@@ -123,7 +123,7 @@ namespace AddonTemplate
                     Menu.Add("harassUseQ", new CheckBox("Use Q"));
                     Menu.Add("harassUseW", new CheckBox("Use W"));
                     Menu.Add("harassUseE", new CheckBox("Use E"));
-                    Menu.Add("harassUseR", new CheckBox("Use R", false)); // Default false
+                    Menu.Add("harassUseR", new CheckBox("Use R (When Killable)", true)); // Default false
 
                     // Adding a slider, we have a little more options with them, using {0} {1} and {2}
                     // in the display name will replace it with 0=current 1=min and 2=max value

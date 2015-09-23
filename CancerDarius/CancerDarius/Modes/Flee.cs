@@ -1,6 +1,6 @@
 ﻿using EloBuddy.SDK;
 
-namespace AddonTemplate.Modes
+namespace CancerDarius.Modes
 {
     public sealed class Flee : ModeBase
     {

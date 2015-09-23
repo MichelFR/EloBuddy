@@ -2,9 +2,9 @@
 using EloBuddy.SDK;
 
 // Using the config like this makes your life easier, trust me
-using Settings = AddonTemplate.Config.Modes.Combo;
+using Settings = CancerDarius.Config.Modes.Combo;
 
-namespace AddonTemplate.Modes
+namespace CancerDarius.Modes
 {
     public sealed class Combo : ModeBase
     {
@@ -25,6 +25,14 @@ namespace AddonTemplate.Modes
                 if (target != null)
                 {
                     Q.Cast(target);
+                }
+            }
+            if (Settings.UseE && E.IsReady())
+            {
+                var target = TargetSelector.GetTarget(E.Range, DamageType.Physical);
+                if (target != null)
+                {
+                    E.Cast(target);
                 }
             }
         }
