@@ -16,7 +16,7 @@ namespace AddonTemplate.Modes
         {
             get { return SpellManager.W; }
         }
-        protected Spell.Skillshot E
+        protected Spell.Active E
         {
             get { return SpellManager.E; }
         }
