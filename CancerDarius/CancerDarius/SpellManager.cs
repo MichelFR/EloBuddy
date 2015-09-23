@@ -16,7 +16,7 @@ namespace AddonTemplate
         static SpellManager()
         {
             // Initialize spells
-            Q = new Spell.Active(SpellSlot.Q, 270);
+            Q = new Spell.Active(SpellSlot.Q, 425);
 
             // TODO: Uncomment the other spells to initialize them
             //W = new Spell.Chargeable(SpellSlot.W);
