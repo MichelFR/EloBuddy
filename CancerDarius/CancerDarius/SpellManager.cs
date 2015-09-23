@@ -10,7 +10,7 @@ namespace AddonTemplate
         // right now it's  set to Active.
         public static Spell.Active Q { get; private set; }
         public static Spell.Chargeable W { get; private set; }
-        public static Spell.Skillshot E { get; private set; }
+        public static Spell.Active E { get; private set; }
         public static Spell.Targeted R { get; private set; }
 
         static SpellManager()
@@ -20,8 +20,8 @@ namespace AddonTemplate
 
             // TODO: Uncomment the other spells to initialize them
             //W = new Spell.Chargeable(SpellSlot.W);
-            //E = new Spell.Skillshot(SpellSlot.E);
-            //R = new Spell.Targeted(SpellSlot.R);
+            E = new Spell.Active(SpellSlot.E, 460);
+            R = new Spell.Targeted(SpellSlot.R, 460);
         }
 
         public static void Initialize()
