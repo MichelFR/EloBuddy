@@ -16,19 +16,19 @@ namespace CancerDarius.Modes
         {
             if (Settings.UseR && R.IsReady())
             {
-                var unit = TargetSelector.GetTarget(E.Range, DamageType.Physical);
+                var target = TargetSelector.GetTarget(E.Range, DamageType.Physical);
 
-                if (unit.IsValidTarget(R.Range) && !unit.IsZombie)
+                if (target.IsValidTarget(R.Range) && !target.IsZombie)
                 {
-                    int rr = unit.GetBuffCount("dariushemo") <= 0 ? 0 : unit.GetBuffCount("dariushemo");
-                    if (!unit.HasBuffOfType(BuffType.Invulnerability) && !unit.HasBuffOfType(BuffType.SpellShield))
+                    int PassiveCounter = target.GetBuffCount("dariushemo") <= 0 ? 0 : target.GetBuffCount("dariushemo");
+                    if (!target.HasBuffOfType(BuffType.Invulnerability) && !target.HasBuffOfType(BuffType.SpellShield))
                     {
-                        if (SpellManager.RDmg(unit, rr) >= unit.Health + SpellManager.PassiveDmg(unit, 1))
+                        if (SpellManager.RDmg(target, PassiveCounter) >= target.Health + SpellManager.PassiveDmg(target, 1))
                         {
-                            if (!unit.HasBuffOfType(BuffType.Invulnerability)
-                                && !unit.HasBuffOfType(BuffType.SpellShield))
+                            if (!target.HasBuffOfType(BuffType.Invulnerability)
+                                && !target.HasBuffOfType(BuffType.SpellShield))
                             {
-                                R.Cast(unit);
+                                R.Cast(target);
                             }
                         }
                     }

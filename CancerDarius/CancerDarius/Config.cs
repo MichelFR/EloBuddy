@@ -40,7 +40,7 @@ namespace CancerDarius
             static Modes()
             {
                 // Initialize the menu
-                Menu = Config.Menu.AddSubMenu("Modes");
+                Menu = Config.Menu.AddSubMenu("Get Cancer");
 
                 // Initialize all modes
                 // Combo
@@ -53,7 +53,6 @@ namespace CancerDarius
 
                 // Killsteal
                 Killsteal.Initialize();
-                Menu.AddSeparator();
             }
 
             public static void Initialize()
