@@ -43,6 +43,26 @@ namespace CancerDarius.Modes
                     Q.Cast(target);
                 }
             }
+            if (Settings.UseR && R.IsReady())
+            {
+                var unit = TargetSelector.GetTarget(E.Range, DamageType.Physical);
+
+                if (unit.IsValidTarget(R.Range) && !unit.IsZombie)
+                {
+                    int rr = unit.GetBuffCount("dariushemo") <= 0 ? 0 : unit.GetBuffCount("dariushemo");
+                    if (!unit.HasBuffOfType(BuffType.Invulnerability) && !unit.HasBuffOfType(BuffType.SpellShield))
+                    {
+                        if (SpellManager.RDmg(unit, rr) >= unit.Health + SpellManager.PassiveDmg(unit, 1))
+                        {
+                            if (!unit.HasBuffOfType(BuffType.Invulnerability)
+                                && !unit.HasBuffOfType(BuffType.SpellShield))
+                            {
+                                R.Cast(unit);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

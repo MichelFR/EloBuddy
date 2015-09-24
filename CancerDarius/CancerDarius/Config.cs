@@ -47,6 +47,11 @@ namespace CancerDarius
 
                 // Harass
                 Harass.Initialize();
+                Menu.AddSeparator();
+
+                // Killsteal
+                Killsteal.Initialize();
+                Menu.AddSeparator();
             }
 
             public static void Initialize()
@@ -58,6 +63,7 @@ namespace CancerDarius
                 private static readonly CheckBox _useQ;
                 private static readonly CheckBox _useW;
                 private static readonly CheckBox _useE;
+                private static readonly CheckBox _useR;
 
                 public static bool UseQ
                 {
@@ -71,6 +77,10 @@ namespace CancerDarius
                 {
                     get { return _useE.CurrentValue; }
                 }
+                public static bool UseR
+                {
+                    get { return _useE.CurrentValue; }
+                }
 
                 static Combo()
                 {
@@ -79,6 +89,7 @@ namespace CancerDarius
                     _useQ = Menu.Add("comboUseQ", new CheckBox("Use Q"));
                     _useW = Menu.Add("comboUseW", new CheckBox("Use W"));
                     _useE = Menu.Add("comboUseE", new CheckBox("Use E"));
+                    _useR = Menu.Add("comboUseR", new CheckBox("Use R (Automatic use if in Range)", true)); // Default false
                 }
 
                 public static void Initialize()
@@ -136,7 +147,7 @@ namespace CancerDarius
                 static Killsteal()
                 {
                     Menu.AddGroupLabel("Killsteal");
-                    _useR = Menu.Add("comboUseR", new CheckBox("Use R (Automatic use if in Range)", true)); // Default false
+                    _useR = Menu.Add("comboUseR", new CheckBox("Use R", true)); // Default false
                 }
 
                 public static void Initialize()
