@@ -40,7 +40,7 @@ namespace CancerDarius.Modes
                 var target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
                 if (Q.IsReady() && Q.IsInRange(target) && target != null)
                 {
-                    Q.Cast(target);
+                    Q.Cast();
                 }
             }
         }
