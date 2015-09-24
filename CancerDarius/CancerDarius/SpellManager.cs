@@ -17,11 +17,11 @@ namespace CancerDarius
         static SpellManager()
         {
             // Initialize spells
-            Q = new Spell.Skillshot(SpellSlot.Q, 425, SkillShotType.Circular, 500, 2000, 120);
+            Q = new Spell.Skillshot(SpellSlot.Q, 425, SkillShotType.Circular, 500, 2000, 120); // Not the right values
 
-            // TODO: Uncomment the other spells to initialize them
+            // TODO: Add The right values
             W = new Spell.Active(SpellSlot.W);
-            E = new Spell.Skillshot(SpellSlot.E, 460, SkillShotType.Cone, 500, 2000, 120);
+            E = new Spell.Skillshot(SpellSlot.E, 460, SkillShotType.Cone, 500, 2000, 120); // Not the right values
             R = new Spell.Targeted(SpellSlot.R, 460);
         }
 

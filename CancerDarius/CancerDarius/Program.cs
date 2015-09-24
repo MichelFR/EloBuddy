@@ -30,7 +30,7 @@ namespace CancerDarius
             }
 
             //Version Check
-            string currentVersion = "0.0";
+            string currentVersion = "0.1";
             Chat.Print("CancerDarius Version: " + currentVersion + " - LOADED.");
             Chat.Print("Checking online version..");
             if (new WebClient().DownloadString("https://raw.githubusercontent.com/incaner/CancerBuddy/master/CancerDarius/Version.txt") != currentVersion)

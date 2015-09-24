@@ -19,10 +19,26 @@ namespace CancerDarius.Modes
             // TODO: Add harass logic here
             // See how I used the Settings.UseQ and Settings.Mana here, this is why I love
             // my way of using the menu in the Config class!
-            if (Settings.UseQ && Player.Instance.ManaPercent > Settings.Mana && Q.IsReady())
+            if (Settings.UseE && E.IsReady() && Player.Instance.ManaPercent > Settings.Mana && Q.IsReady())
+            {
+                var target = TargetSelector.GetTarget(E.Range, DamageType.Physical);
+                if (E.IsReady() && E.IsInRange(target) && target != null)
+                {
+                    E.Cast(target);
+                }
+            }
+            if (Settings.UseW && W.IsReady() && Player.Instance.ManaPercent > Settings.Mana && Q.IsReady())
+            {
+                var target = TargetSelector.GetTarget(E.Range, DamageType.Physical);
+                if (W.IsReady() && target != null)
+                {
+                    W.Cast();
+                }
+            }
+            if (Settings.UseQ && Q.IsReady() && Player.Instance.ManaPercent > Settings.Mana && Q.IsReady())
             {
                 var target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
-                if (target != null)
+                if (Q.IsReady() && Q.IsInRange(target) && target != null)
                 {
                     Q.Cast(target);
                 }
