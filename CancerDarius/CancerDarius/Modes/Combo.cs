@@ -22,7 +22,7 @@ namespace CancerDarius.Modes
             if (Settings.UseQ && Q.IsReady())
             {
                 var target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
-                if (target != null)
+                if (Q.IsReady() && Q.IsInRange(target))
                 {
                     Q.Cast(target);
                 }
@@ -30,7 +30,7 @@ namespace CancerDarius.Modes
             if (Settings.UseE && E.IsReady())
             {
                 var target = TargetSelector.GetTarget(E.Range, DamageType.Physical);
-                if (target != null)
+                if (E.IsReady() && E.IsInRange(target))
                 {
                     E.Cast(target);
                 }
