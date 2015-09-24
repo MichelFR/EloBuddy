@@ -3,6 +3,7 @@ using EloBuddy;
 using EloBuddy.SDK.Events;
 using EloBuddy.SDK.Rendering;
 using SharpDX;
+using System.Net;
 
 namespace CancerDarius
 {
@@ -32,7 +33,7 @@ namespace CancerDarius
             string currentVersion = "0.0";
             Chat.Print("CancerDarius Version: " + currentVersion + " - LOADED.");
             Chat.Print("Checking online version..");
-            if (new WebClient().DownloadString("") != currentVersion)
+            if (new WebClient().DownloadString("https://raw.githubusercontent.com/incaner/CancerBuddy/master/CancerDarius/Version.txt") != currentVersion)
                 Chat.Print("Old CancerDarius version!");
             else
                 Chat.Print("You have the last version of CancerDarius addon.");
