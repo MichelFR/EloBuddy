@@ -149,7 +149,7 @@ namespace CancerDarius
                 static Killsteal()
                 {
                     Menu.AddGroupLabel("Killsteal");
-                    _useR = Menu.Add("comboUseR", new CheckBox("Use R", true)); // Default false
+                    _useR = Menu.Add("stealUseR", new CheckBox("Use R", true)); // Default false
                 }
 
                 public static void Initialize()

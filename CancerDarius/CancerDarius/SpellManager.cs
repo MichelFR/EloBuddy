@@ -19,7 +19,7 @@ namespace CancerDarius
             // Initialize spells
             Q = new Spell.Active(SpellSlot.Q, 425);
             W = new Spell.Active(SpellSlot.W, 200);
-            E = new Spell.Skillshot(SpellSlot.E, 550, SkillShotType.Cone);
+            E = new Spell.Skillshot(SpellSlot.E, 550, SkillShotType.Cone, 250, 100, 120);
             R = new Spell.Targeted(SpellSlot.R, 460);
         }
 
