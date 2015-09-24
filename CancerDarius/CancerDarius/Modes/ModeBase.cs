@@ -8,7 +8,7 @@ namespace CancerDarius.Modes
         // here to have full features of that spells, if you don't need that,
         // just change it to Spell.SpellBase, this way it's dynamic with still
         // the most needed functions
-        protected Spell.Skillshot Q
+        protected Spell.Active Q
         {
             get { return SpellManager.Q; }
         }
