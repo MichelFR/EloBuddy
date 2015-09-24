@@ -21,10 +21,12 @@ namespace CancerDarius
             Menu = MainMenu.AddMenu(MenuName, MenuName.ToLower());
             Menu.AddGroupLabel("Welcome to CancerDarius Addon!");
             Menu.AddLabel("Im Cancerous and i dont got Cancer!");
-            Menu.AddLabel("I Dont want to make fun of people who got Cancer, i just wanted to say that this addon is badass just like the disease!");
+            Menu.AddLabel("I Dont want to make fun of people who got Cancer,");
+            Menu.AddLabel("i just wanted to say that this addon is badass just like the disease!");
+            
 
-            // Initialize the modes
-            Modes.Initialize();
+           // Initialize the modes
+           Modes.Initialize();
         }
 
         public static void Initialize()
