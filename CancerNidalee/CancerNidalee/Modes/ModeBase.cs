@@ -28,7 +28,7 @@ namespace CancerNidalee.Modes
         {
             get { return SpellManager.W2; }
         }
-        protected Spell.Active E2
+        protected Spell.Skillshot E2
         {
             get { return SpellManager.E2; }
         }

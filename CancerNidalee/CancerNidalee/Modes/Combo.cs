@@ -18,6 +18,20 @@ namespace CancerNidalee.Modes
         {
             return target.HasBuff("nidaleepassivehunted");
         }
+        private static float CougarDamage(Obj_AI_Base target)
+        {
+            var damage = 0d;
+
+            if (Settings.UseCQ)
+                damage += ObjectManager.Player.GetSpellDamage(target, SpellSlot.Q);
+            if (Settings.UseCW) //w.IsReady
+                damage += ObjectManager.Player.GetSpellDamage(target, SpellSlot.W);
+            if (Settings.UseCE)
+                damage += ObjectManager.Player.GetSpellDamage(target, SpellSlot.E);
+
+            return (float)damage;
+        }
+
         public override void Execute()
         {
             var CougarForm = Q.Name == "Takedown";
@@ -27,7 +41,7 @@ namespace CancerNidalee.Modes
             // Check if Q2 is ready (on unit)
             if (Q2.IsReady() && Settings.UseCQ && target.Distance(ObjectManager.Player.ServerPosition, true) <= Q2.RangeSquared + 150 * 150)
             {
-                Q2.Cast();
+                Q2.Cast(target.Position);
                 if (Player.HasBuff("Takedown"))
                     Player.IssueOrder(GameObjectOrder.AttackUnit, target);
             }
@@ -40,25 +54,42 @@ namespace CancerNidalee.Modes
                     if (Q2.IsReady())
                         Q2.Cast();
 
-                    W2.Cast(target.ServerPosition);
+                    W.Cast(target.Position);
                 }
                 else if (target.Distance(ObjectManager.Player.ServerPosition, true) <= 400 * 400)
                 {
                     if (Q2.IsReady())
                         Q2.Cast();
 
-                    W2.Cast(target.ServerPosition);
+                    W.Cast(target.ServerPosition);
                 }
             }
-            // Check if swipe is ready (no prediction)
-            if (E2.IsReady() && Settings.UseCE)
+            // Check if swipe is ready
+            if (Swipe.IsReady() && _mainMenu.Item("usecougare").GetValue<bool>())
             {
-                if (target.Distance(ObjectManager.Player.ServerPosition, true) <= E2.RangeSquared)
+                if (target.Distance(Me.ServerPosition, true) <= Swipe.RangeSqr)
                 {
-                    if (!E2.IsReady())
+                    if (!W2.IsReady())
                         E2.Cast(target.ServerPosition);
                 }
             }
+
+            // Switch to human form if can kill in aa and cougar skill not available      
+            if (!W2.IsReady() && !E2.IsReady() && !Q2.IsReady())
+            {
+                if (target.Distance(ObjectManager.Player.ServerPosition, true) > Q2.RangeSquared)
+                {
+                    if (Settings.UseR)
+                    {
+                        if (target.Distance(ObjectManager.Player.ServerPosition, true) <= ObjectManager.Player.AttackRange * ObjectManager.Player.AttackRange + 50 * 50)
+                        {
+                            if (R.IsReady())
+                                R.Cast();
+                        }
+                    }
+                }
+            }
+        
             // human Q 
             if (!CougarForm && target.IsValidTarget(Q.Range))
             {

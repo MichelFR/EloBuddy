@@ -1,4 +1,5 @@
-﻿using EloBuddy.SDK;
+﻿using EloBuddy;
+using EloBuddy.SDK;
 
 namespace CancerNidalee.Modes
 {
@@ -14,8 +15,14 @@ namespace CancerNidalee.Modes
         {
             var CougarForm = Q.Name == "Takedown";
             if (!CougarForm && R.IsReady() && W2.IsReady())
+            {
                 R.Cast();
-                W2.Cast();
+                W.Cast(Game.CursorPos);
+            }
+            if (CougarForm && R.IsReady() && W2.IsReady())
+            {
+                W.Cast(Game.CursorPos);
+            }
         }
     }
 }

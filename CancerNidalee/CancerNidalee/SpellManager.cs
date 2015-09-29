@@ -18,7 +18,7 @@ namespace CancerNidalee
         //Cougar
         public static Spell.Active Q2 { get; private set; }
         public static Spell.Active W2 { get; private set; }
-        public static Spell.Active E2 { get; private set; }
+        public static Spell.Skillshot E2 { get; private set; }
         public static Spell.Active R2 { get; private set; }
 
         static SpellManager()
@@ -31,7 +31,7 @@ namespace CancerNidalee
             // Initialize Cougarspells
             Q2 = new Spell.Active(SpellSlot.Q, 200);
             W2 = new Spell.Active(SpellSlot.W, 375);
-            E2 = new Spell.Active(SpellSlot.E, 275);
+            E2 = new Spell.Skillshot(SpellSlot.E, 275, SkillShotType.Cone);
             R2 = new Spell.Active(SpellSlot.R);
             // Initialize Transformspell
 
