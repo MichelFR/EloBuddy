@@ -8,29 +8,29 @@ namespace CancerNidalee.Modes
         // here to have full features of that spells, if you don't need that,
         // just change it to Spell.SpellBase, this way it's dynamic with still
         // the most needed functions
-        protected Spell.Skillshot Javelin
+        protected Spell.Skillshot Q
         {
-            get { return SpellManager.Javelin; }
+            get { return SpellManager.Q; }
         }
-        protected Spell.Skillshot Bushwack
+        protected Spell.Skillshot W
         {
-            get { return SpellManager.Bushwack; }
+            get { return SpellManager.W; }
         }
-        protected Spell.Targeted Primalsurge
+        protected Spell.Targeted E
         {
-            get { return SpellManager.Primalsurge; }
+            get { return SpellManager.E; }
         }
-        protected Spell.Active Takedown
+        protected Spell.Active Q2
         {
-            get { return SpellManager.Takedown; }
+            get { return SpellManager.Q2; }
         }
-        protected Spell.Active Pounce
+        protected Spell.Active W2
         {
-            get { return SpellManager.Pounce; }
+            get { return SpellManager.W2; }
         }
-        protected Spell.Active Swipe
+        protected Spell.Active E2
         {
-            get { return SpellManager.Swipe; }
+            get { return SpellManager.E2; }
         }
 
         public abstract bool ShouldBeExecuted();

@@ -50,10 +50,10 @@ namespace CancerNidalee
         private static void OnDraw(EventArgs args)
         {
             // Draw range circles of our spells
-            Circle.Draw(Color.Blue, SpellManager.Javelin.Range, Player.Instance.Position);
+            Circle.Draw(Color.Blue, SpellManager.Q.Range, Player.Instance.Position);
             // TODO: Uncomment if you want those enabled aswell, but remember to enable them
             // TODO: in the SpellManager aswell, otherwise you will get a NullReferenceException
-            Circle.Draw(Color.Red, SpellManager.Bushwack.Range, Player.Instance.Position);
+            Circle.Draw(Color.Red, SpellManager.W.Range, Player.Instance.Position);
             //Circle.Draw(Color.Red, SpellManager.E.Range, Player.Instance.Position);
             //Circle.Draw(Color.Red, SpellManager.R.Range, Player.Instance.Position);
         }

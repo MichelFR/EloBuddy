@@ -19,20 +19,20 @@ namespace CancerNidalee.Modes
             // TODO: Add harass logic here
             // See how I used the Settings.UseQ and Settings.Mana here, this is why I love
             // my way of using the menu in the Config class!
-            if (Settings.UseHumanQ && Javelin.IsReady() && Player.Instance.ManaPercent > Settings.Mana && Javelin.IsReady())
+            if (Settings.UseHumanQ && Q.IsReady() && Player.Instance.ManaPercent > Settings.Mana && Q.IsReady())
             {
-                var target = TargetSelector.GetTarget(Javelin.Range, DamageType.Physical);
-                if (Javelin.IsReady() && Javelin.IsInRange(target) && target != null)
+                var target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
+                if (Q.IsReady() && Q.IsInRange(target) && target != null)
                 {
-                    Javelin.Cast(target);
+                    Q.Cast(target);
                 }
             }
-            if (Settings.UseHumanW && Bushwack.IsReady() && Player.Instance.ManaPercent > Settings.Mana && Javelin.IsReady())
+            if (Settings.UseHumanW && W.IsReady() && Player.Instance.ManaPercent > Settings.Mana && Q.IsReady())
             {
-                var target = TargetSelector.GetTarget(Bushwack.Range, DamageType.Physical);
-                if (Bushwack.IsReady() && target != null)
+                var target = TargetSelector.GetTarget(W.Range, DamageType.Physical);
+                if (W.IsReady() && target != null)
                 {
-                    Bushwack.Cast();
+                    W.Cast();
                 }
             }
         }

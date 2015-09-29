@@ -1,4 +1,5 @@
-﻿using EloBuddy.SDK.Menu;
+﻿using EloBuddy.SDK;
+using EloBuddy.SDK.Menu;
 using EloBuddy.SDK.Menu.Values;
 
 // ReSharper disable InconsistentNaming
@@ -57,25 +58,42 @@ namespace CancerNidalee
 
             public static class Combo
             {
-                private static readonly CheckBox _useJavelin;
-                private static readonly CheckBox _useBushwack;
-                private static readonly CheckBox _usePrimalsurge;
+                private static readonly CheckBox _useQ;
+                private static readonly CheckBox _useW;
 
-                public static bool UseJavelin
+                public static bool UseQ
                 {
-                    get { return _useJavelin.CurrentValue; }
+                    get { return _useQ.CurrentValue; }
                 }
-                public static bool UseBushwack
+                public static bool UseW
                 {
-                    get { return _useBushwack.CurrentValue; }
+                    get { return _useW.CurrentValue; }
                 }
 
                 static Combo()
                 {
                     // Initialize the menu values
                     Menu.AddGroupLabel("Combo");
-                    _useJavelin = Menu.Add("comboUseHQ", new CheckBox("Use Human Q"));
-                    _useBushwack = Menu.Add("comboUseHW", new CheckBox("Use Human W"));
+                    _useQ = Menu.Add("comboUseHQ", new CheckBox("Use Human Q"));
+                    _useW = Menu.Add("comboUseHW", new CheckBox("Use Human W"));
+                }
+
+                public static void Initialize()
+                {
+                }
+            }
+
+            public static class Misc
+            {
+
+                static Misc()
+                {
+                    // Initialize the menu values
+                    Menu.AddGroupLabel("Misc");
+                    foreach (var hero in HeroManager.Allies)
+                    {
+                        Menu.Add("healallies", new CheckBox("Heal " + hero.ChampionName));
+                    }
                 }
 
                 public static void Initialize()
