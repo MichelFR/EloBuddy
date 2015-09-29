@@ -12,7 +12,9 @@ namespace CancerNidalee.Modes
 
         public override void Execute()
         {
-            // TODO: Add flee logic here
+            var CougarForm = Q.Name == "Takedown";
+            if (!CougarForm && R.IsReady() && CW.IsReady())
+                R.Cast();
         }
     }
 }
