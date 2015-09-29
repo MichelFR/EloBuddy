@@ -13,8 +13,9 @@ namespace CancerNidalee.Modes
         public override void Execute()
         {
             var CougarForm = Q.Name == "Takedown";
-            if (!CougarForm && R.IsReady() && CW.IsReady())
+            if (!CougarForm && R.IsReady() && W2.IsReady())
                 R.Cast();
+                W2.Cast();
         }
     }
 }

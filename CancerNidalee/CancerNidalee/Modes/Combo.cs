@@ -14,47 +14,65 @@ namespace CancerNidalee.Modes
             // Only execute this mode when the orbwalker is on combo mode
             return Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Combo);
         }
+        private static bool TargetHunted(Obj_AI_Base target)
+        {
+            return target.HasBuff("nidaleepassivehunted");
+        }
         public override void Execute()
         {
             var CougarForm = Q.Name == "Takedown";
-            if (Settings.UseHQ && Q.IsReady() && !CougarForm)
+            var target = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
+            
+
+            // Check if Q2 is ready (on unit)
+            if (Q2.IsReady() && Settings.UseCQ && target.Distance(ObjectManager.Player.ServerPosition, true) <= Q2.RangeSquared + 150 * 150)
             {
-                var target = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
-                if (Q.IsReady() && Q.IsInRange(target) && target != null)
+                Q2.Cast();
+                if (Player.HasBuff("Takedown"))
+                    Player.IssueOrder(GameObjectOrder.AttackUnit, target);
+            }
+            // Check is pounce is ready 
+            if (W2.IsReady() && Settings.UseCW &&
+               (target.Distance(ObjectManager.Player.ServerPosition, true) > 275 * 275))
+            {
+                if (TargetHunted(target) & target.Distance(ObjectManager.Player.ServerPosition, true) <= 735 * 735)
                 {
-                   Q.Cast(target);
+                    if (Q2.IsReady())
+                        Q2.Cast();
+
+                    W2.Cast(target.ServerPosition);
+                }
+                else if (target.Distance(ObjectManager.Player.ServerPosition, true) <= 400 * 400)
+                {
+                    if (Q2.IsReady())
+                        Q2.Cast();
+
+                    W2.Cast(target.ServerPosition);
                 }
             }
-            if (Settings.UseHW && W.IsReady() && !CougarForm)
+            // Check if swipe is ready (no prediction)
+            if (E2.IsReady() && Settings.UseCE)
             {
-                var target = TargetSelector.GetTarget(W.Range, DamageType.Magical);
-                if (W.IsReady() && target != null)
+                if (target.Distance(ObjectManager.Player.ServerPosition, true) <= E2.RangeSquared)
                 {
-                    W.Cast(target.Position);
+                    if (!E2.IsReady())
+                        E2.Cast(target.ServerPosition);
                 }
             }
-            // transform always when a target is marked 
-            if (Settings.UseR && R.IsReady() && CougarForm)
+            // human Q 
+            if (!CougarForm && target.IsValidTarget(Q.Range))
             {
-                var target = TargetSelector.GetTarget(W.Range, DamageType.Magical);
-                if (W.IsReady() && target != null && target.HasBuff("nidaleepassivehunted") && target.Distance(ObjectManager.Player.Position) <= 750)
+                if (target.IsValidTarget() && Q.IsReady() && Settings.UseHQ)
                 {
-                    W.Cast(target.Position);
+                    Q.Cast(target);
                 }
             }
-            if (CougarForm && W.IsReady() && Settings.UseCW)
+            // Check bushwack and cast underneath targets feet.
+            if (W.IsReady() && Settings.UseHW)
             {
-                var heroes = HeroManager.Enemies.Where(x => x.IsValidTarget() && !x.IsZombie && x.HasBuff("nidaleepassivehunted") && x.Distance(ObjectManager.Player.Position) <= 750);
-                foreach (var x in heroes)
+                if (target.Distance(ObjectManager.Player.ServerPosition, true) <= W.RangeSquared)
                 {
-                    W.Cast(x.Position);
-                    return;
-                }
-                var targets = HeroManager.Enemies.Where(x => x.IsValidTarget() && !x.IsZombie && !x.HasBuff("nidaleepassivehunted") && x.Distance(ObjectManager.Player.Position) <= 375 + ObjectManager.Player.BoundingRadius);
-                foreach (var x in heroes)
-                {
-                    W.Cast(x.Position);
-                    return;
+                    W.Cast();
                 }
             }
         }
