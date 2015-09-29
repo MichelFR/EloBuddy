@@ -31,7 +31,7 @@ namespace CancerNidalee.Modes
                 {
                     if (target.Health * 100 / target.MaxHealth <= Settings.HpHeal)
                     {
-                        R.Cast(target);
+                        R.Cast();
                         E.Cast(target);
                     }
                 }
