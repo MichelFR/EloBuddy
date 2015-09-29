@@ -32,6 +32,10 @@ namespace CancerNidalee.Modes
         {
             get { return SpellManager.E2; }
         }
+        protected Spell.Active R
+        {
+            get { return SpellManager.R; }
+        }
 
         public abstract bool ShouldBeExecuted();
 

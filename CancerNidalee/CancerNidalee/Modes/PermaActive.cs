@@ -1,7 +1,7 @@
-﻿using EloBuddy;
-using EloBuddy.SDK;
+﻿using EloBuddy.SDK;
+using System.Linq;
 
-using Settings = CancerNidalee.Config.Modes;
+using Settings = CancerNidalee.Config.Modes.Misc;
 
 namespace CancerNidalee.Modes
 {
@@ -14,8 +14,17 @@ namespace CancerNidalee.Modes
         }
         public override void Execute()
         {
-            
-        
+            var CougarForm = Q.Name == "Takedown";
+            if (!CougarForm && E.IsReady() && Settings.UseHeal)
+            {
+                foreach (var target in HeroManager.Allies.Where(target => target.IsValidTarget(E.Range) && !target.IsZombie))
+                {
+                    if (target.Health * 100 / target.MaxHealth <= Settings.HpHeal)
+                    {
+                        E.Cast(target);
+                    }
+                }
+            }
         }
     }
 }

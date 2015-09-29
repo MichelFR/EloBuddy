@@ -50,6 +50,9 @@ namespace CancerNidalee
 
                 // Harass
                 Harass.Initialize();
+                Menu.AddSeparator();
+
+                Misc.Initialize();
             }
 
             public static void Initialize()
@@ -58,24 +61,48 @@ namespace CancerNidalee
 
             public static class Combo
             {
-                private static readonly CheckBox _useQ;
-                private static readonly CheckBox _useW;
+                private static readonly CheckBox _useHQ;
+                private static readonly CheckBox _useHW;
+                private static readonly CheckBox _useCQ;
+                private static readonly CheckBox _useCW;
+                private static readonly CheckBox _useCE;
+                private static readonly CheckBox _useR;
 
-                public static bool UseQ
+                public static bool UseHQ
                 {
-                    get { return _useQ.CurrentValue; }
+                    get { return _useHQ.CurrentValue; }
                 }
-                public static bool UseW
+                public static bool UseHW
                 {
-                    get { return _useW.CurrentValue; }
+                    get { return _useHW.CurrentValue; }
+                }
+                public static bool UseCQ
+                {
+                    get { return _useCQ.CurrentValue; }
+                }
+                public static bool UseCW
+                {
+                    get { return _useCW.CurrentValue; }
+                }
+                public static bool UseCE
+                {
+                    get { return _useCE.CurrentValue; }
+                }
+                public static bool UseR
+                {
+                    get { return _useR.CurrentValue; }
                 }
 
                 static Combo()
                 {
                     // Initialize the menu values
                     Menu.AddGroupLabel("Combo");
-                    _useQ = Menu.Add("comboUseHQ", new CheckBox("Use Human Q"));
-                    _useW = Menu.Add("comboUseHW", new CheckBox("Use Human W"));
+                    _useHQ = Menu.Add("comboUseHQ", new CheckBox("Use Human Q"));
+                    _useHW = Menu.Add("comboUseHW", new CheckBox("Use Human W"));
+                    _useCQ = Menu.Add("comboUseCQ", new CheckBox("Use Cougar Q"));
+                    _useCW = Menu.Add("comboUseCW", new CheckBox("Use Cougar W"));
+                    _useCE = Menu.Add("comboUseCE", new CheckBox("Use Cougar E"));
+                    _useR = Menu.Add("comboUseR", new CheckBox("Auto Transform"));
                 }
 
                 public static void Initialize()
@@ -85,15 +112,27 @@ namespace CancerNidalee
 
             public static class Misc
             {
+                public static bool UseHeal
+                {
+                    get { return Menu["miscHeal"].Cast<CheckBox>().CurrentValue; }
+                }
+                public static bool UseRHeal
+                {
+                    get { return Menu["miscRHeal"].Cast<CheckBox>().CurrentValue; }
+                }
+                public static int HpHeal
+                {
+                    get { return Menu["miscHpHeal"].Cast<Slider>().CurrentValue; }
+                }
 
                 static Misc()
                 {
-                    // Initialize the menu values
+                    // Here is another option on how to use the menu, but I prefer the
+                    // way that I used in the combo class
                     Menu.AddGroupLabel("Misc");
-                    foreach (var hero in HeroManager.Allies)
-                    {
-                        Menu.Add("healallies", new CheckBox("Heal " + hero.ChampionName));
-                    }
+                    Menu.Add("miscHeal", new CheckBox("Use Heal"));
+                    Menu.Add("miscRHeal", new CheckBox("Use Auto R Heal", false));
+                    Menu.Add("miscHpHeal", new Slider("if hp < ({0}%)", 40));
                 }
 
                 public static void Initialize()
