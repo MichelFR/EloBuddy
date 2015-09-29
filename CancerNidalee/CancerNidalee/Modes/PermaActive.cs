@@ -25,6 +25,17 @@ namespace CancerNidalee.Modes
                     }
                 }
             }
+            if (CougarForm && E.IsReady() && Settings.UseRHeal)
+            {
+                foreach (var target in HeroManager.Allies.Where(target => target.IsValidTarget(E.Range) && !target.IsZombie))
+                {
+                    if (target.Health * 100 / target.MaxHealth <= Settings.HpHeal)
+                    {
+                        R.Cast(target);
+                        E.Cast(target);
+                    }
+                }
+            }
         }
     }
 }
