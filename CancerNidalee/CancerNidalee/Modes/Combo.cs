@@ -65,9 +65,9 @@ namespace CancerNidalee.Modes
                 }
             }
             // Check if swipe is ready
-            if (Swipe.IsReady() && _mainMenu.Item("usecougare").GetValue<bool>())
+            if (E2.IsReady() && Settings.UseCE)
             {
-                if (target.Distance(Me.ServerPosition, true) <= Swipe.RangeSqr)
+                if (target.Distance(ObjectManager.Player.ServerPosition, true) <= E2.RangeSquared)
                 {
                     if (!W2.IsReady())
                         E2.Cast(target.ServerPosition);
