@@ -32,7 +32,7 @@ namespace CancerDarius
         {
             var bonus =
                 stackcount *
-                    (new[] { 20, 20, 40, 60 }[R.Level] + (0.20 * ObjectManager.Player.FlatPhysicalDamageMod));
+                    (new[] { 20, 20, 40, 60 }[R.Level] + (0.25 * ObjectManager.Player.FlatPhysicalDamageMod)* stackcount);
 
             return
                 (float)(bonus + (ObjectManager.Player.CalculateDamageOnUnit(unit, DamageType.True,
@@ -40,7 +40,7 @@ namespace CancerDarius
         }
         public static float PassiveDmg(Obj_AI_Base unit, int stackcount)
         {
-            if (stackcount <= 0)
+            if (stackcount < 0)
                 stackcount = 1;
 
             return
