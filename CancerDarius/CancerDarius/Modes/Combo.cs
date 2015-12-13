@@ -57,7 +57,7 @@ namespace CancerDarius.Modes
                             if (!target.HasBuffOfType(BuffType.Invulnerability)
                                 && !target.HasBuffOfType(BuffType.SpellShield))
                             {
-                                //if (!unit.HasBuff("kindredrnodeathbuff"))
+                                if (!target.HasBuff("kindredrnodeathbuff"))
                                 R.Cast(target);
                             }
                         }
