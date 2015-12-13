@@ -25,7 +25,8 @@ namespace CancerDarius
             if (Player.Instance.ChampionName != ChampName)
             {
                 // Champion is not the one we made this addon for,
-                // therefore we return
+                Chat.Print("You're not Darius");
+                Chat.Print("Get CAAAAAAAANCERRRR! :D");
                 return;
             }
 
