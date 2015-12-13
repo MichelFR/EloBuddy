@@ -40,7 +40,7 @@ namespace CancerDarius
         }
         public static float PassiveDmg(Obj_AI_Base unit, int stackcount)
         {
-            if (stackcount < 0)
+            if (stackcount < 1)
                 stackcount = 1;
 
             return
