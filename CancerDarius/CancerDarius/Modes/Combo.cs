@@ -24,10 +24,7 @@ namespace CancerDarius.Modes
                 var target = TargetSelector.GetTarget(E.Range, DamageType.Physical);
                 if (E.IsReady() && target != null)
                 {
-                    if (Q.IsReady() || W.IsReady())
-                    {
                     E.Cast(target);
-                    }
                 }
             }
             if (Settings.UseW && W.IsReady())
