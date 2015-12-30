@@ -218,7 +218,7 @@ namespace CancerDarius
                 }
                 public static bool ShowR
                 {
-                    get { return _ShowR.CurrentValue; }
+                    get { return _showR.CurrentValue; }
                 }
 
                 static Drawings()
