@@ -16,16 +16,17 @@ namespace CancerDarius.Modes
 
         public override void Execute()
         {
-            // TODO: Add combo logic here
-            // See how I used the Settings.UseQ here, this is why I love my way of using
             // the menu in the Config class!
             if (Settings.UseE && E.IsReady())
             {
                 var target = TargetSelector.GetTarget(E.Range, DamageType.Physical);
-                if (E.IsReady() && target != null)
-                {
-                    E.Cast(target);
-                }
+                 if (target.Distance(ObjectManager.Player.ServerPosition) > 250)
+                    {
+                        if (E.IsReady() && target != null)
+                        {
+                            E.Cast(target.ServerPosition);
+                        }
+                    }
             }
             if (Settings.UseW && W.IsReady())
             {
@@ -45,7 +46,7 @@ namespace CancerDarius.Modes
             }
             if (Settings.UseR && R.IsReady())
             {
-                var target = TargetSelector.GetTarget(E.Range, DamageType.Physical);
+                var target = TargetSelector.GetTarget(R.Range, DamageType.Physical);
 
                 if (target.IsValidTarget(R.Range) && !target.IsZombie)
                 {
@@ -55,9 +56,9 @@ namespace CancerDarius.Modes
                         if (SpellManager.RDmg(target, PassiveCounter) >= target.Health + SpellManager.PassiveDmg(target, 1))
                         {
                             if (!target.HasBuffOfType(BuffType.Invulnerability)
-                                && !target.HasBuffOfType(BuffType.SpellShield))
+                                && !target.HasBuffOfType(BuffType.SpellShield) 
+                                && !target.HasBuff("kindredrnodeathbuff"))
                             {
-                                if (!target.HasBuff("kindredrnodeathbuff"))
                                 R.Cast(target);
                             }
                         }
