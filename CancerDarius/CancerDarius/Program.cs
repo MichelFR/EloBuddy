@@ -30,15 +30,6 @@ namespace CancerDarius
                 return;
             }
 
-            //Version Check
-            string currentVersion = "1.0.1";
-            Chat.Print("CancerDarius Version: " + currentVersion + " - LOADED.");
-            Chat.Print("Checking online version..");
-            if (new WebClient().DownloadString("https://raw.githubusercontent.com/incaner/CancerBuddy/master/CancerDarius/Version.txt") != currentVersion)
-                Chat.Print("Old CancerDarius version!");
-            else
-                Chat.Print("You have the last version of CancerDarius addon.");
-
             // Initialize the classes that we need
             Config.Initialize();
             SpellManager.Initialize();
