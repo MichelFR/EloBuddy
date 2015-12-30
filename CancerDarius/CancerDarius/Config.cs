@@ -95,9 +95,9 @@ namespace CancerDarius
                 {
                     // Initialize the menu values
                     Menu.AddGroupLabel("Combo");
-                    _useQ = Menu.Add("comboUseQ", new CheckBox("Use Q"));
-                    _useW = Menu.Add("comboUseW", new CheckBox("Use W"));
-                    _useE = Menu.Add("comboUseE", new CheckBox("Use E"));
+                    _useQ = Menu.Add("comboUseQ", new CheckBox("Use Q"), true);
+                    _useW = Menu.Add("comboUseW", new CheckBox("Use W"), true);
+                    _useE = Menu.Add("comboUseE", new CheckBox("Use E"), true);
                     _useR = Menu.Add("comboUseR", new CheckBox("Use R (Automatic use if in Range)", true)); // Default false
                 }
 
@@ -130,13 +130,13 @@ namespace CancerDarius
                     // Here is another option on how to use the menu, but I prefer the
                     // way that I used in the combo class
                     Menu.AddGroupLabel("Harass");
-                    Menu.Add("harassUseQ", new CheckBox("Use Q"));
-                    Menu.Add("harassUseW", new CheckBox("Use W"));
-                    Menu.Add("harassUseE", new CheckBox("Use E"));
+                    Menu.Add("harassUseQ", new CheckBox("Use Q"), true);
+                    Menu.Add("harassUseW", new CheckBox("Use W"), true);
+                    Menu.Add("harassUseE", new CheckBox("Use E"), false);
 
                     // Adding a slider, we have a little more options with them, using {0} {1} and {2}
                     // in the display name will replace it with 0=current 1=min and 2=max value
-                    Menu.Add("harassMana", new Slider("Maximum mana usage in percent ({0}%)", 40));
+                    Menu.Add("harassMana", new Slider("Maximum mana usage in percent ({0}%)", 50));
                 }
 
                 public static void Initialize()
@@ -164,8 +164,8 @@ namespace CancerDarius
                     // Here is another option on how to use the menu, but I prefer the
                     // way that I used in the combo class
                     Menu.AddGroupLabel("Laneclear");
-                    Menu.Add("clearUseQ", new CheckBox("Use Q"));
-                    Menu.Add("clearUseE", new CheckBox("Use E"));
+                    Menu.Add("clearUseQ", new CheckBox("Use Q"), true);
+                    Menu.Add("clearUseE", new CheckBox("Use E"), false);
 
                     // Adding a slider, we have a little more options with them, using {0} {1} and {2}
                     // in the display name will replace it with 0=current 1=min and 2=max value
@@ -189,7 +189,7 @@ namespace CancerDarius
                 static Killsteal()
                 {
                     Menu.AddGroupLabel("Killsteal");
-                    _useR = Menu.Add("stealUseR", new CheckBox("Use R", true)); // Default false
+                    _useR = Menu.Add("stealUseR", new CheckBox("Use R", true));
                 }
 
                 public static void Initialize()
@@ -226,8 +226,8 @@ namespace CancerDarius
                     // Initialize the menu values
                     Menu.AddGroupLabel("Drawings");
                     _showQ = Menu.Add("drawingsShowQ", new CheckBox("Draw Q", true));
-                    _showW = Menu.Add("drawingsShowW", new CheckBox("Draw W"));
-                    _showE = Menu.Add("drawingsShowE", new CheckBox("Draw E"));
+                    _showW = Menu.Add("drawingsShowW", new CheckBox("Draw W"), false);
+                    _showE = Menu.Add("drawingsShowE", new CheckBox("Draw E"), false);
                     _showR = Menu.Add("drawingsShowR", new CheckBox("Draw R", true));
                 }
 
