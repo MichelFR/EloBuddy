@@ -57,9 +57,7 @@ namespace CancerDarius
                 
                 // Killsteal
                 Killsteal.Initialize();
-                
-                // Initialize the drawingsmenu
-                Menu = Config.Menu.AddSubMenu("Drawings");
+                Menu.AddSeparator();
                 
                 // Drawings
                 Drawings.Initialize();
