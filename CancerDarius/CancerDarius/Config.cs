@@ -225,10 +225,10 @@ namespace CancerDarius
                 {
                     // Initialize the menu values
                     Menu.AddGroupLabel("Drawings");
-                    _useQ = Menu.Add("drawingsShowQ", new CheckBox("Draw Q", true));
-                    _useW = Menu.Add("drawingsShowW", new CheckBox("Draw W"));
-                    _useE = Menu.Add("drawingsShowE", new CheckBox("Draw E"));
-                    _useR = Menu.Add("drawingsShowR", new CheckBox("Draw R", true));
+                    _showQ = Menu.Add("drawingsShowQ", new CheckBox("Draw Q", true));
+                    _showW = Menu.Add("drawingsShowW", new CheckBox("Draw W"));
+                    _showE = Menu.Add("drawingsShowE", new CheckBox("Draw E"));
+                    _showR = Menu.Add("drawingsShowR", new CheckBox("Draw R", true));
                 }
 
                 public static void Initialize()
