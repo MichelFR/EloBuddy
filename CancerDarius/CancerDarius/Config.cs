@@ -51,6 +51,10 @@ namespace CancerDarius
                 Harass.Initialize();
                 Menu.AddSeparator();
 
+                // Laneclear
+                Laneclear.Initialize();
+                Menu.AddSeparator();
+                
                 // Killsteal
                 Killsteal.Initialize();
             }
@@ -129,6 +133,39 @@ namespace CancerDarius
                     // Adding a slider, we have a little more options with them, using {0} {1} and {2}
                     // in the display name will replace it with 0=current 1=min and 2=max value
                     Menu.Add("harassMana", new Slider("Maximum mana usage in percent ({0}%)", 40));
+                }
+
+                public static void Initialize()
+                {
+                }
+            }
+
+             public static class Laneclear
+            {
+                public static bool UseQ
+                {
+                    get { return Menu["clearUseQ"].Cast<CheckBox>().CurrentValue; }
+                }
+                public static bool UseE
+                {
+                    get { return Menu["clearUseE"].Cast<CheckBox>().CurrentValue; }
+                }
+                public static int Mana
+                {
+                    get { return Menu["clearMana"].Cast<Slider>().CurrentValue; }
+                }
+
+                static Laneclear()
+                {
+                    // Here is another option on how to use the menu, but I prefer the
+                    // way that I used in the combo class
+                    Menu.AddGroupLabel("Laneclear");
+                    Menu.Add("clearUseQ", new CheckBox("Use Q"));
+                    Menu.Add("clearUseE", new CheckBox("Use E"));
+
+                    // Adding a slider, we have a little more options with them, using {0} {1} and {2}
+                    // in the display name will replace it with 0=current 1=min and 2=max value
+                    Menu.Add("clearMana", new Slider("Maximum mana usage in percent ({0}%)", 40));
                 }
 
                 public static void Initialize()
