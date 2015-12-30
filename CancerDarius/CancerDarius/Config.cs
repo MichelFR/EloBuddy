@@ -57,6 +57,12 @@ namespace CancerDarius
                 
                 // Killsteal
                 Killsteal.Initialize();
+                
+                // Initialize the drawingsmenu
+                Menu = Config.Menu.AddSubMenu("Drawings");
+                
+                // Drawings
+                Drawings.Initialize();
             }
 
             public static void Initialize()
@@ -186,6 +192,45 @@ namespace CancerDarius
                 {
                     Menu.AddGroupLabel("Killsteal");
                     _useR = Menu.Add("stealUseR", new CheckBox("Use R", true)); // Default false
+                }
+
+                public static void Initialize()
+                {
+                }
+            }
+            
+            public static class Drawings
+            {
+                private static readonly CheckBox _showQ;
+                private static readonly CheckBox _showW;
+                private static readonly CheckBox _showE;
+                private static readonly CheckBox _showR;
+
+                public static bool ShowQ
+                {
+                    get { return _showQ.CurrentValue; }
+                }
+                public static bool ShowW
+                {
+                    get { return _showW.CurrentValue; }
+                }
+                public static bool ShowE
+                {
+                    get { return _showE.CurrentValue; }
+                }
+                public static bool ShowR
+                {
+                    get { return _ShowE.CurrentValue; }
+                }
+
+                static Drawings()
+                {
+                    // Initialize the menu values
+                    Menu.AddGroupLabel("Drawings");
+                    _useQ = Menu.Add("drawingsShowQ", new CheckBox("Draw Q", true));
+                    _useW = Menu.Add("drawingsShowW", new CheckBox("Draw W"));
+                    _useE = Menu.Add("drawingsShowE", new CheckBox("Draw E"));
+                    _useR = Menu.Add("drawingsShowR", new CheckBox("Draw R", true));
                 }
 
                 public static void Initialize()
