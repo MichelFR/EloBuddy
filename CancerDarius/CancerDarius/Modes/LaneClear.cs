@@ -1,4 +1,8 @@
-﻿using EloBuddy.SDK;
+using System.Linq;
+using EloBuddy;
+using EloBuddy.SDK;
+
+using Settings = AddonTemplate.Config.Modes.Laneclear;
 
 namespace CancerDarius.Modes
 {
@@ -12,7 +16,19 @@ namespace CancerDarius.Modes
 
         public override void Execute()
         {
-            // TODO: Add laneclear logic here
+            var minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range).Where( m => !m.IsDead && m.IsValid && !m.IsInvulnerable);
+            
+            foreach (var m in minions)
+            {
+                if (Settings.UseQ)
+                {                
+                    Q.Cast();
+                }
+                if (Settings.UseE)
+                {
+                E.Cast(m.ServerPosition);
+                }
+            }
         }
     }
 }
