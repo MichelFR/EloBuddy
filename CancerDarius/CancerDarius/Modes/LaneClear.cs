@@ -2,7 +2,7 @@ using System.Linq;
 using EloBuddy;
 using EloBuddy.SDK;
 
-using Settings = AddonTemplate.Config.Modes.Laneclear;
+using Settings = CancerDarius.Config.Modes.Laneclear;
 
 namespace CancerDarius.Modes
 {
