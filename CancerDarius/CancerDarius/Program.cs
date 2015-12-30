@@ -45,13 +45,13 @@ namespace CancerDarius
         {
             // Draw range circles of our spells
              if (Settings.ShowQ)
-            Circle.Draw(Color.Red, SpellManager.Q.Range, Player.Instance.Position);
+            Circle.Draw(Color.Blue, SpellManager.Q.Range, Player.Instance.Position);
             
             if (Settings.ShowW)
-            Circle.Draw(Color.Red, SpellManager.W.Range, Player.Instance.Position);
+            Circle.Draw(Color.Blue, SpellManager.W.Range, Player.Instance.Position);
             
             if (Settings.ShowE)
-            Circle.Draw(Color.Red, SpellManager.E.Range, Player.Instance.Position);
+            Circle.Draw(Color.Blue, SpellManager.E.Range, Player.Instance.Position);
             
             if (Settings.ShowR)
             Circle.Draw(Color.Red, SpellManager.R.Range, Player.Instance.Position);
