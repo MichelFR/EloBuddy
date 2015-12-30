@@ -5,6 +5,8 @@ using EloBuddy.SDK.Rendering;
 using SharpDX;
 using System.Net;
 
+using Settings = CancerDarius.Config.Modes.Drawings;
+
 namespace CancerDarius
 {
     public static class Program
@@ -42,11 +44,16 @@ namespace CancerDarius
         private static void OnDraw(EventArgs args)
         {
             // Draw range circles of our spells
+             if (Settings.ShowQ)
             Circle.Draw(Color.Red, SpellManager.Q.Range, Player.Instance.Position);
-            // TODO: Uncomment if you want those enabled aswell, but remember to enable them
-            // TODO: in the SpellManager aswell, otherwise you will get a NullReferenceException
-            //Circle.Draw(Color.Red, SpellManager.W.Range, Player.Instance.Position);
+            
+            if (Settings.ShowW)
+            Circle.Draw(Color.Red, SpellManager.W.Range, Player.Instance.Position);
+            
+            if (Settings.ShowE)
             Circle.Draw(Color.Red, SpellManager.E.Range, Player.Instance.Position);
+            
+            if (Settings.ShowR)
             Circle.Draw(Color.Red, SpellManager.R.Range, Player.Instance.Position);
         }
     }
