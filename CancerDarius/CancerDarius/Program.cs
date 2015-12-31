@@ -31,7 +31,9 @@ namespace CancerDarius
                 Chat.Print("Get CAAAAAAAANCERRRR! :D");
                 return;
             }
-
+            else
+            Chat.Print("Get CAAAAAAAANCERRRR! - and Happy new Year!");
+            
             // Initialize the classes that we need
             Config.Initialize();
             SpellManager.Initialize();
