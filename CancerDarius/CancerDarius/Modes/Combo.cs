@@ -20,7 +20,7 @@ namespace CancerDarius.Modes
             if (Settings.UseE && E.IsReady())
             {
                 var target = TargetSelector.GetTarget(E.Range, DamageType.Physical);
-                 if (target.Distance(ObjectManager.Player.ServerPosition) > 250)
+                 if (target.Distance(Player.Instance.ServerPosition) > 250)
                     {
                         if (E.IsReady() && target != null)
                         {
