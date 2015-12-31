@@ -24,7 +24,7 @@ namespace CancerDarius.Modes
                 var target = TargetSelector.GetTarget(E.Range, DamageType.Physical);
                 if (E.IsReady() && E.IsInRange(target) && target != null)
                 {
-                    E.Cast(target);
+                    E.Cast(target.ServerPosition);
                 }
             }
             if (Settings.UseW && W.IsReady() && Player.Instance.ManaPercent > Settings.Mana && Q.IsReady())
