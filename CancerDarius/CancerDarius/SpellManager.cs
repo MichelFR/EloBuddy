@@ -32,11 +32,11 @@ namespace CancerDarius
         {
             var bonus =
                 stackcount *
-                    (new[] { 20, 20, 40, 60 }[R.Level] + (0.25 * ObjectManager.Player.FlatPhysicalDamageMod)* stackcount);
+                    (new[] { 20, 20, 40, 60 }[R.Level] + (0.25 * Player.Instance.FlatPhysicalDamageMod)* stackcount);
 
             return
-                (float)(bonus + (ObjectManager.Player.CalculateDamageOnUnit(unit, DamageType.True,
-                        new[] { 100, 100, 200, 300 }[R.Level] + (float)(0.75 * ObjectManager.Player.FlatPhysicalDamageMod))));
+                (float)(bonus + (Player.Instance.CalculateDamageOnUnit(unit, DamageType.True,
+                        new[] { 100, 100, 200, 300 }[R.Level] + (float)(0.75 * Player.Instance.FlatPhysicalDamageMod))));
         }
         public static float PassiveDmg(Obj_AI_Base unit, int stackcount)
         {
@@ -45,8 +45,8 @@ namespace CancerDarius
 
             return
                 (float)
-                    ObjectManager.Player.CalculateDamageOnUnit(unit, DamageType.Physical,
-                        (9 + ObjectManager.Player.Level) + (float)(0.3 * ObjectManager.Player.FlatPhysicalDamageMod)) * stackcount;
+                    Player.Instance.CalculateDamageOnUnit(unit, DamageType.Physical,
+                        (9 + Player.Instance.Level) + (float)(0.3 * Player.Instance.FlatPhysicalDamageMod)) * stackcount;
         }
 
     }
