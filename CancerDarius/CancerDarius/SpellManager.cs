@@ -32,7 +32,7 @@ namespace CancerDarius
         {
             var bonus =
                 stackcount *
-                    (new[] { 20, 20, 40, 60 }[R.Level] + (0.15 * Player.Instance.FlatPhysicalDamageMod)* stackcount);
+                    (new[] { 20, 20, 40, 60 }[R.Level] + (0.15 * Player.Instance.FlatPhysicalDamageMod));
 
             return
                 (float)(bonus + (Player.Instance.CalculateDamageOnUnit(unit, DamageType.True,
