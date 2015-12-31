@@ -51,8 +51,6 @@ namespace CancerDarius.Modes
                 if (target.IsValidTarget(R.Range) && !target.IsZombie)
                 {
                     int PassiveCounter = target.GetBuffCount("dariushemo") <= 0 ? 0 : target.GetBuffCount("dariushemo");
-                    if (!target.HasBuffOfType(BuffType.Invulnerability) && !target.HasBuffOfType(BuffType.SpellShield))
-                    {
                         if (SpellManager.RDmg(target, PassiveCounter) >= target.Health + SpellManager.PassiveDmg(target, 1))
                         {
                             if (!target.HasBuffOfType(BuffType.Invulnerability)
@@ -62,7 +60,6 @@ namespace CancerDarius.Modes
                                 R.Cast(target);
                             }
                         }
-                    }
                 }
             }
         }
