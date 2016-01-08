@@ -20,14 +20,11 @@ namespace CancerDarius.Modes
             
             foreach (var m in minions)
             {
-                if (Settings.UseQ)
-                {                
+                if (Settings.UseQ && Player.Instance.ManaPercent > Settings.Mana)
                     Q.Cast();
-                }
+                    
                 if (Settings.UseE)
-                {
-                E.Cast(m.ServerPosition);
-                }
+                    E.Cast(m.ServerPosition);
             }
         }
     }
