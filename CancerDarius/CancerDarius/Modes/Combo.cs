@@ -33,6 +33,7 @@ namespace CancerDarius.Modes
                 var target = TargetSelector.GetTarget(W.Range, DamageType.Physical);
                 if (W.IsReady() && target != null)
                 {
+                    if (!target.IsFacing(Player.Instance))
                     W.Cast();
                 }
             }
