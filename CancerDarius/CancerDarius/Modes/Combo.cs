@@ -65,7 +65,7 @@ namespace CancerDarius.Modes
                                 || !target.HasBuff("BardRStasis") //Bard R
                                 || !target.HasBuff("ChronoShift") //Zilean R
                                 )
-                        }
+                            {
                                 R.Cast(target);
                             }
                         }
