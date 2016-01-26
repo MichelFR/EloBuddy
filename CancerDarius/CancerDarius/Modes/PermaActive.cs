@@ -24,8 +24,10 @@ namespace CancerDarius.Modes
                         if (SpellManager.RDmg(target, PassiveCounter) >= target.Health + SpellManager.PassiveDmg(target, 1))
                         {
                             if (!target.HasBuffOfType(BuffType.Invulnerability)
-                                && !target.HasBuffOfType(BuffType.SpellShield)
-                                && !target.HasBuff("kindredrnodeathbuff"))
+                                || !target.HasBuffOfType(BuffType.SpellShield) 
+                                || !target.HasBuff("kindredrnodeathbuff")
+                                || !target.HasBuff("BlitzcrankManaBarrierCD") 
+                                || !target.HasBuff("ManaBarrier"))
                             {
                                 R.Cast(target);
                             }
