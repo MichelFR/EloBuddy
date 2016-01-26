@@ -27,13 +27,13 @@ namespace CancerDarius
             if (Player.Instance.ChampionName != ChampName)
             {
                 // Champion is not the one we made this addon for,
-                Game.PrintChat("<font color=\"#00BFFF\">CancerDarius </font>Jinx<font color=\"#000000\"> by cancerous </font> - <font color=\"#FFFFFF\">not loaded</font>");
+                Chat.Print("<font color=\"#00BFFF\">CancerDarius </font>Jinx<font color=\"#000000\"> by cancerous </font> - <font color=\"#FFFFFF\">not loaded</font>");
                 return;
             }
             if (Player.Instance.ChampionName = ChampName)
             {
                 // Champion is not the one we made this addon for,
-                Game.PrintChat("<font color=\"#00BFFF\">CancerDarius </font>Jinx<font color=\"#000000\"> by cancerous </font> - <font color=\"#FFFFFF\">loaded</font>");
+                Chat.Print("<font color=\"#00BFFF\">CancerDarius </font>Jinx<font color=\"#000000\"> by cancerous </font> - <font color=\"#FFFFFF\">loaded</font>");
                 return;
             }
             
