@@ -56,10 +56,15 @@ namespace CancerDarius.Modes
                         {
                             if (!target.HasBuffOfType(BuffType.Invulnerability)
                                 || !target.HasBuffOfType(BuffType.SpellShield) 
-                                || !target.HasBuff("kindredrnodeathbuff")
-                                || !target.HasBuff("BlitzcrankManaBarrierCD") 
-                                || !target.HasBuff("ManaBarrier"))
-                            {
+                                || !target.HasBuff("kindredrnodeathbuff") //Kindred Ult
+                                || !target.HasBuff("BlitzcrankManaBarrierCD") //Blitz Passive
+                                || !target.HasBuff("ManaBarrier") //Blitz Passive
+                                || !target.HasBuff("FioraW") //Fiora W
+                                || !target.HasBuff("JudicatorIntervention") //Kayle R
+                                || !target.HasBuff("UndyingRage") //Trynd R
+                                || !target.HasBuff("BardRStasis") //Bard R
+                                || !target.HasBuff("ChronoShift") //Zilean R
+                                )
                                 R.Cast(target);
                             }
                         }
