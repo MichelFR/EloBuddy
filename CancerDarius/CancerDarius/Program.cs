@@ -23,19 +23,17 @@ namespace CancerDarius
 
         private static void OnLoadingComplete(EventArgs args)
         {
+            // Initial Text
+            Chat.Print("<font color=\"#00BFFF\">CancerDarius </font>Jinx<font color=\"#000000\"> by cancerous </font> - <font color=\"#FFFFFF\">loaded</font>");
+            
             // Verify the champion we made this addon for
             if (Player.Instance.ChampionName != ChampName)
             {
                 // Champion is not the one we made this addon for,
-                Chat.Print("<font color=\"#00BFFF\">CancerDarius </font>Jinx<font color=\"#000000\"> by cancerous </font> - <font color=\"#FFFFFF\">not loaded</font>");
+                Chat.Print("You are not darius");
                 return;
             }
-            if (Player.Instance.ChampionName = ChampName)
-            {
-                // Champion is not the one we made this addon for,
-                Chat.Print("<font color=\"#00BFFF\">CancerDarius </font>Jinx<font color=\"#000000\"> by cancerous </font> - <font color=\"#FFFFFF\">loaded</font>");
-                return;
-            }
+            
             
             // Initialize the classes that we need
             Config.Initialize();
