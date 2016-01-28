@@ -35,8 +35,8 @@ namespace CancerDarius
                     (new[] { 20, 20, 40, 60 }[R.Level] + (0.15 * Player.Instance.FlatPhysicalDamageMod));
 
             return
-                (float)(bonus + (Player.Instance.CalculateDamageOnUnit(unit, DamageType.True,
-                        new[] { 100, 100, 200, 300 }[R.Level] + (float)(0.75 * Player.Instance.FlatPhysicalDamageMod))));
+                (float)(bonus + 50 + (Player.Instance.CalculateDamageOnUnit(unit, DamageType.True,
+                        new[] { 100, 100, 200, 300 }[R.Level] + (float)(0.75 * Player.Instance.FlatPhysicalDamageMod)))); //the 50 is just to be sure it will kill him!
         }
         public static float PassiveDmg(Obj_AI_Base unit, int stackcount)
         {
