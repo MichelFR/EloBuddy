@@ -55,15 +55,15 @@ namespace CancerDarius.Modes
                         if (SpellManager.RDmg(target, PassiveCounter) >= target.Health + SpellManager.PassiveDmg(target, 1))
                         {
                             if (!target.HasBuffOfType(BuffType.Invulnerability)
-                                || !target.HasBuffOfType(BuffType.SpellShield) 
-                                || !target.HasBuff("kindredrnodeathbuff") //Kindred Ult
-                                || !target.HasBuff("BlitzcrankManaBarrierCD") //Blitz Passive
-                                || !target.HasBuff("ManaBarrier") //Blitz Passive
-                                || !target.HasBuff("FioraW") //Fiora W
-                                || !target.HasBuff("JudicatorIntervention") //Kayle R
-                                || !target.HasBuff("UndyingRage") //Trynd R
-                                || !target.HasBuff("BardRStasis") //Bard R
-                                || !target.HasBuff("ChronoShift") //Zilean R
+                                && !target.HasBuffOfType(BuffType.SpellShield) 
+                                && !target.HasBuff("kindredrnodeathbuff") //Kindred Ult
+                                && !target.HasBuff("BlitzcrankManaBarrierCD") //Blitz Passive
+                                && !target.HasBuff("ManaBarrier") //Blitz Passive
+                                && !target.HasBuff("FioraW") //Fiora W
+                                && !target.HasBuff("JudicatorIntervention") //Kayle R
+                                && !target.HasBuff("UndyingRage") //Trynd R
+                                && !target.HasBuff("BardRStasis") //Bard R
+                                && !target.HasBuff("ChronoShift") //Zilean R
                                 )
                             {
                                 R.Cast(target);
